@@ -31,7 +31,8 @@ jobs:
           
     - name: Check Keys
       run: |
-        cat ${{env.home}}/runner/.near-credentials/fundingaccount05.testnet.json
+        cd ${{env.home}}/runner/.near-credentials
+        ls -a
       
     #- name: Deploy
     #  run: |
