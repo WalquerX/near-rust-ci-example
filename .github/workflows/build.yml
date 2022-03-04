@@ -38,7 +38,7 @@ jobs:
     - uses: dawidd6/action-download-artifact@v2.17.0   # make it dont stop if fail
       with:
         github_token: ${{secrets.TOKEN}}
-        workflow: build.yml
+        workflow: build
         name: subaccount-keys
         path: ~/.near-credentials/testnet/x4.subaccount04.testaccount14.testnet.json
         workflow_conclusion: Failure
