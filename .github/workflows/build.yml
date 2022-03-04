@@ -19,6 +19,9 @@ jobs:
     
     - name: Build
       run: cargo build --verbose
+      
+    - name: List
+      run: ls -a
     
     #- name: Run tests
     #  run: cargo test --verbose
