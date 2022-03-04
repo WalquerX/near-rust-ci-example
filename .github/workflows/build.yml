@@ -31,7 +31,7 @@ jobs:
           
     - name: Check Keys
       run: |
-        cd ~/.near-credentials
+        cd ~/.near-credentials/testnet
         ls -a
         cat fundingaccount05.testnet.json
       
