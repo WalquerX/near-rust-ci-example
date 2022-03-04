@@ -35,7 +35,7 @@ jobs:
         ls -a
         cat subaccount04.testaccount14.testnet.json
         
-    - uses: dawidd6/action-download-artifact@v2   # make it dont stop if fail
+    - uses: dawidd6/action-download-artifact@v2.17.0   # make it dont stop if fail
       with:
         github_token: ${{secrets.TOKEN}}
         workflow: build.yml
