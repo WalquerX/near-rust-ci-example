@@ -38,7 +38,7 @@ jobs:
     - uses: actions/download-artifact@v3   # make it dont stop if fail
       with:
         name: subaccount-keys
-        path: ~/.near-credentials/testnet/subaccount05.testaccount14.testnet.json
+        path: ~/.near-credentials/testnet/x.subaccount04.testaccount14.testnet.json
         
     - name: Delete/Create subaccounts
       if: always()
@@ -47,11 +47,11 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: subaccount-keys
-        path: ~/.near-credentials/testnet/subaccount05.testaccount14.testnet.json
+        path: ~/.near-credentials/testnet/x.subaccount04.testaccount14.testnet.json
       
     - name: Deploy
       run: |
-       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId subaccount05.testaccount14.testnet
+       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x.subaccount04.testaccount14.testnet
        
     
     #- name: Run tests
