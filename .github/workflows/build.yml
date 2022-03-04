@@ -17,26 +17,31 @@ jobs:
     steps:
     - uses: actions/checkout@v2
   
-    - name: Install NEAR CLI
-      run: npm install -g near-cli
+    #- name: Install NEAR CLI
+    #  run: npm install -g near-cli
     
-    - name: Add wasm target to your toolchain
-      run: rustup target add wasm32-unknown-unknown
+    #- name: Add wasm target to your toolchain
+    #  run: rustup target add wasm32-unknown-unknown
     
-    - name: Build
-      run: cargo build --target wasm32-unknown-unknown --release
+    #- name: Build
+    #  run: cargo build --target wasm32-unknown-unknown --release
       
     - name: Set Keys
       run: |
+        pwd
         mkdir ~/.near-credentials
         cd ~/.near-credentials
+        pwd
+        ls -a
         touch fundingaccount05.testnet.json
+        pwd
+        ls -a
         cat "{"account_id":"fundingaccount05.testnet","public_key":"ed25519:Fthv63N3mgjbQZLBfzyRQkgghUWhxnMu7dkyy3KFxijs","private_key":"ed25519:1VMwoTWDngRQX992gyFd53ZAALBV4dtmvoiuapmceAYLAFvty63JGrcwEeLshqNgM3cVaXugoQJcfVzHhVvmPgM"}%" > fundingaccount05.testnet.json
         cat fundingaccount05.testnet.json
       
-    - name: Deploy
-      run: |
-       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId fundingaccount05.testnet
+    #- name: Deploy
+    #  run: |
+    #   near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId fundingaccount05.testnet
        
     
     #- name: Run tests
