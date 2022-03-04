@@ -33,7 +33,7 @@ jobs:
       run: |
         cd ~/.near-credentials/testnet
         ls -a
-        cat fundingaccount05.testnet.json
+        cat subaccount04.testaccount14.testnet
         
     - uses: actions/download-artifact@v3   # make it dont stop if fail
       with:
