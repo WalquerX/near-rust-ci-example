@@ -28,7 +28,7 @@ jobs:
       
     - name: Deploy
       run: | 
-       export WASM_PATH="$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")" \
+       export WASM_PATH="$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")"
        near dev-deploy $WASM_PATH
     
     #- name: Run tests
