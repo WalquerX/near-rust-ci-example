@@ -35,10 +35,12 @@ jobs:
         ls -a
         cat subaccount04.testaccount14.testnet.json
         
-    - uses: actions/download-artifact@v3   # make it dont stop if fail
+    - uses: dawidd6/action-download-artifact@v2   # make it dont stop if fail
       with:
+        github_token: ${{secrets.TOKEN}}
+        workflow: build.yml
         name: subaccount-keys
-        path: ~/.near-credentials/testnet/x2.subaccount04.testaccount14.testnet.json
+        path: ~/.near-credentials/testnet/x3.subaccount04.testaccount14.testnet.json
         
     - name: Delete/Create subaccounts
       if: always()
@@ -48,12 +50,12 @@ jobs:
       if: always()
       with:
         name: subaccount-keys
-        path: ~/.near-credentials/testnet/x2.subaccount04.testaccount14.testnet.json
+        path: ~/.near-credentials/testnet/x3.subaccount04.testaccount14.testnet.json
       
     - name: Deploy
       if: always()
       run: |
-       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x2.subaccount04.testaccount14.testnet
+       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x3.subaccount04.testaccount14.testnet
        
     
     #- name: Run tests
