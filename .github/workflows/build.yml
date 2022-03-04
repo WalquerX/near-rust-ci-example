@@ -31,7 +31,7 @@ jobs:
           
     - name: Check Keys
       run: |
-        cd ${{env.home}}/runner/.near-credentials
+        cd ~/.near-credentials
         ls -a
       
     #- name: Deploy
