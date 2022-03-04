@@ -27,12 +27,9 @@ jobs:
       run: cargo build --target wasm32-unknown-unknown --release
       
     - name: Deploy
-      run: | 
-       export WASM_PATH="$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")"
-       echo $WASM_PATH
-       near dev-deploy $WASM_PATH > output.txt
-       cat output.txt
-       near state testaccount14.testnet
+      run: |
+       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId subaccount04.testaccount14.testnet
+       
     
     #- name: Run tests
     #  run: cargo test --verbose
