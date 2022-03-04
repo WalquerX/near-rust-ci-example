@@ -33,6 +33,7 @@ jobs:
       run: |
         cd ~/.near-credentials
         ls -a
+        cat fundingaccount05.testnet.json
       
     #- name: Deploy
     #  run: |
