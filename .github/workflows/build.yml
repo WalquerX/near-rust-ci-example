@@ -26,10 +26,10 @@ jobs:
     - name: Build
       run: cargo build --target wasm32-unknown-unknown --release
       
-    - name: List
+    - name: Deploy
       run: | 
        export WASM_PATH="$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")" \
-       echo $WASM_PATH
+       near dev-deploy $WASM_PATH
     
     #- name: Run tests
     #  run: cargo test --verbose
