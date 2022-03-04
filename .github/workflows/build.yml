@@ -25,7 +25,7 @@ jobs:
       
     - name: List
       run: | 
-       WASM_PATH = "$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")" \
+       export WASM_PATH = "$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")" \
        echo WASM_PATH
     
     #- name: Run tests
