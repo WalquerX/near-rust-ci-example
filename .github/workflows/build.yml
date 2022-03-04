@@ -16,6 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+  
+    - name: Install NEAR CLI
+      run: npm install -g near-cli
     
     - name: Add wasm target to your toolchain
       run: rustup target add wasm32-unknown-unknown
