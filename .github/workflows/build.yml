@@ -27,31 +27,7 @@ jobs:
     #  run: cargo build --target wasm32-unknown-unknown --release
       
     - name: Set Keys
-      run: |
-        echo "donde inicio"
-        pwd
-        echo "creo la carpeta de credenciales"
-        mkdir ~/.near-credentials
-        echo "me muevo a la carpeta de credenciales"
-        cd ~/.near-credentials
-        echo "donde estoy ahora? debería estar en la carpeta de credenciales"
-        pwd
-        echo "qué hay dentro de la carpeta de credenciales"
-        ls -a
-        touch fundingaccount05.testnet.json
-        echo "sigo en la misma carpeta?"
-        pwd
-        echo "qué hay ahora dentro?"
-        ls -a
-        echo "trato de llenar el archivo de keys"
-    
-    - uses: DamianReeves/write-file-action@master
-      with:
-        path: ${{env.home}}/runner/.near-credentials/fundingaccount05.testnet.json
-        contents: |
-          echo "{account_id:fundingaccount05.testnet,public_key:ed25519:Fthv63N3mgjbQZLBfzyRQkgghUWhxnMu7dkyy3KFxijs,private_key:ed25519:1VMwoTWDngRQX992gyFd53ZAALBV4dtmvoiuapmceAYLAFvty63JGrcwEeLshqNgM3cVaXugoQJcfVzHhVvmPgM}%"
-          write-mode: append
-        
+      run: sh ./script.sh
           
     - name: Check Keys
       run: |
