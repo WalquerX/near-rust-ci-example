@@ -17,14 +17,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
   
-    #- name: Install NEAR CLI
-    #  run: npm install -g near-cli
+    - name: Install NEAR CLI
+      run: npm install -g near-cli
     
-    #- name: Add wasm target to your toolchain
-    #  run: rustup target add wasm32-unknown-unknown
+    - name: Add wasm target to your toolchain
+      run: rustup target add wasm32-unknown-unknown
     
-    #- name: Build
-    #  run: cargo build --target wasm32-unknown-unknown --release
+    - name: Build
+      run: cargo build --target wasm32-unknown-unknown --release
       
     - name: Set Keys
       run: sh ./script.sh
@@ -35,9 +35,9 @@ jobs:
         ls -a
         cat fundingaccount05.testnet.json
       
-    #- name: Deploy
-    #  run: |
-    #   near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId fundingaccount05.testnet
+    - name: Deploy
+      run: |
+       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId fundingaccount05.testnet
        
     
     #- name: Run tests
