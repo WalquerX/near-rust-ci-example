@@ -29,6 +29,7 @@ jobs:
     - name: Deploy
       run: | 
        export WASM_PATH="$(find ./target/wasm32-unknown-unknown/release/ -maxdepth 1 -name "*.wasm")"
+       echo $WASM_PATH
        near dev-deploy $WASM_PATH > output.txt
        cat output.txt
        near state testaccount14.testnet
