@@ -41,7 +41,7 @@ jobs:
         workflow: build.yml
         name: subaccount-keys
         path: ~/.near-credentials/testnet/x4.subaccount04.testaccount14.testnet.json
-        workflow_conclusion: failed
+        workflow_conclusion: Failure
         
     - name: Delete/Create subaccounts
       if: always()
