@@ -7,7 +7,7 @@ on:
   #  branches: [ master ]
   
 env:
-  CONTRACT_ACCOUNT_ID: x22.subaccount04.testaccount14.testnet
+  CONTRACT_ACCOUNT_ID: x23.subaccount04.testaccount14.testnet
 
 jobs:
   build: 
@@ -63,7 +63,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: credentials
-        path: ~/.near-credentials/testnet/$CONTRACT_ACCOUNT_ID.json
+        path: ~/.near-credentials/testnet/${{ env.CONTRACT_ACCOUNT_ID }}.json
     
     - name: Deploy
       run: |
