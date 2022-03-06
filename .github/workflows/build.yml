@@ -57,7 +57,7 @@ jobs:
       
     - name: Create or recreate subaccount
       run: |
-       near create-account $CONTRACT_ACCOUNT_ID.testnet --masterAccount subaccount04.testaccount14.testnet
+       near create-account $CONTRACT_ACCOUNT_ID --masterAccount subaccount04.testaccount14.testnet
     
     - name: Upload artifact
       uses: actions/upload-artifact@v2
