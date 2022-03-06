@@ -20,8 +20,8 @@ jobs:
     - name: Add wasm target to your toolchain
       run: rustup target add wasm32-unknown-unknown
     
-    - name: Build
-      run: cargo build --target wasm32-unknown-unknown --release
+    #- name: Build
+    #  run: cargo build --target wasm32-unknown-unknown --release
       
     - name: Set Keys
       run: sh ./script.sh
@@ -36,7 +36,7 @@ jobs:
       id: cache
       with:
         path: ~/.near-credentials/testnet/x12.subaccount04.testaccount14.testnet.json
-        key: subaccount-credentials06-${{ hashFiles('**.testnet.json') }}
+        key: subaccount-credentials06-${{ hashFiles('~/.near-credentials/testnet/**.testnet.json') }}
     
     - name: Check cache
       run: |
@@ -44,17 +44,17 @@ jobs:
         ls -a
     #   cat x10.subaccount04.testaccount14.testnet.json
         
-    - name: Delete subaccount
-      if: steps.cache.outputs.cache-hit == 'true'
-      run: near delete x12.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
+    #- name: Delete subaccount
+    #  if: steps.cache.outputs.cache-hit == 'true'
+    #  run: near delete x12.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
       
-    - name: Create or recreate subaccount
-      run: |
-       near create-account x12.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
+    #- name: Create or recreate subaccount
+    #  run: |
+    #   near create-account x12.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
       
-    - name: Deploy
-      run: |
-       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x12.subaccount04.testaccount14.testnet
+    #- name: Deploy
+    #  run: |
+    #   near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x12.subaccount04.testaccount14.testnet
        
     
     #- name: Run tests
