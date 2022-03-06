@@ -7,7 +7,9 @@ on:
   #  branches: [ master ]
   
 env:
+  MASTER_ACCOUNT_ID: subaccount04.testaccount14.testnet
   CONTRACT_ACCOUNT_ID: x23.subaccount04.testaccount14.testnet
+  COMPILED_CONTRACT_FILE: rust_ci_example.wasm
 
 jobs:
   build: 
@@ -53,11 +55,11 @@ jobs:
     - name: Delete subaccount
       continue-on-error: True
     #  if: steps.cache.outputs.cache-hit == 'true'
-      run: near delete $CONTRACT_ACCOUNT_ID subaccount04.testaccount14.testnet
+      run: near delete $CONTRACT_ACCOUNT_ID $MASTER_ACCOUNT_ID
       
     - name: Create or recreate subaccount
       run: |
-       near create-account $CONTRACT_ACCOUNT_ID --masterAccount subaccount04.testaccount14.testnet
+       near create-account $CONTRACT_ACCOUNT_ID --masterAccount $MASTER_ACCOUNT_ID
     
     - name: Upload artifact
       uses: actions/upload-artifact@v2
@@ -67,7 +69,7 @@ jobs:
     
     - name: Deploy
       run: |
-       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId $CONTRACT_ACCOUNT_ID
+       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/$COMPILED_CONTRACT_FILE --accountId $CONTRACT_ACCOUNT_ID
        
     
     #- name: Run tests
