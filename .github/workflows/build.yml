@@ -36,7 +36,7 @@ jobs:
       id: cache
       with:
         path: ~/.near-credentials/testnet/x12.subaccount04.testaccount14.testnet.json
-        key: subaccount-credentials06-${{ hashFiles('~/.near-credentials/testnet/**.testnet.json') }}
+        key: subaccount-credentials06-${{hashFiles('~/.near-credentials/testnet/**.testnet.json')}}
     
     - name: Check cache
       run: |
