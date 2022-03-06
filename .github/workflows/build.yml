@@ -42,7 +42,7 @@ jobs:
         cat subaccount04.testaccount14.testnet.json
         
     - name: Delete subaccount
-      if: steps.cache.outputs.cache-hit = 'true' #
+      if: steps.cache.outputs.cache-hit == 'true'
       run: near delete x5.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
       
     - name: Create or recreate subaccount
