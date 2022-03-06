@@ -43,14 +43,28 @@ jobs:
     #    cd ~/.near-credentials/testnet
     #    ls -a
     #   cat x10.subaccount04.testaccount14.testnet.json
+    
+    - name: Download artifact credentials
+      uses: dawidd6/action-download-artifact@v2
+      with:
+          workflow: build.yml
+          branch: master
+          name: credentials
+          path: ~/.near-credentials/testnet/x13.subaccount04.testaccount14.testnet.json
+    
+    - name: Check artifact
+      run: |
+        cd ~/.near-credentials/testnet
+        ls -a
+    #    cat x10.subaccount04.testaccount14.testnet.json
         
     #- name: Delete subaccount
     #  if: steps.cache.outputs.cache-hit == 'true'
     #  run: near delete x12.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
       
-    - name: Create or recreate subaccount
-      run: |
-       near create-account x13.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
+    #- name: Create or recreate subaccount
+    #  run: |
+    #   near create-account x13.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
     
     - name: Upload artifact
       uses: actions/upload-artifact@v2
