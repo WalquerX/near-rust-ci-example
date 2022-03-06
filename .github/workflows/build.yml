@@ -35,25 +35,25 @@ jobs:
     - uses: actions/cache@v2
       id: cache
       with:
-        path: ~/.near-credentials/x5.subaccount04.testaccount14.testnet.json
-        key: subaccount-credentials03
+        path: ~/.near-credentials/testnet/x8.subaccount04.testaccount14.testnet.json
+        key: subaccount-credentials04
     
     - name: Check cache
       run: |
         cd ~/.near-credentials/testnet
         ls -a
         
-    #- name: Delete subaccount
-    #  if: steps.cache.outputs.cache-hit == 'true'
-    #  run: near delete x7.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
+    - name: Delete subaccount
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: near delete x8.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
       
-    #- name: Create or recreate subaccount
-    #  run: |
-    #   near create-account x7.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
+    - name: Create or recreate subaccount
+      run: |
+       near create-account x8.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
       
-    #- name: Deploy
-    #  run: |
-    #   near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x7.subaccount04.testaccount14.testnet
+    - name: Deploy
+      run: |
+       near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x8.subaccount04.testaccount14.testnet
        
     
     #- name: Run tests
