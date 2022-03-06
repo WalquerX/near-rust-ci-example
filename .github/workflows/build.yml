@@ -1,4 +1,4 @@
-name: Rust Near 
+name: Rust Near
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   #  branches: [ master ]
   
 env:
-  CONTRACT_ACCOUNT_ID: x21.subaccount04.testaccount14.testnet
+  CONTRACT_ACCOUNT_ID: x22.subaccount04.testaccount14.testnet
 
 jobs:
   build: 
