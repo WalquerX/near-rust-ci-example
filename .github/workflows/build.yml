@@ -1,4 +1,4 @@
-name: Rust Near
+name: Rust Near 
 
 on:
   push:
