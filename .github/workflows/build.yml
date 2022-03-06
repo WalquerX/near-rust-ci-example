@@ -48,7 +48,7 @@ jobs:
       run: |
         cd
         ls -a
-        find -iname x20.subaccount04.testaccount14.testnet.json
+        find -iname $CONTRACT_ACCOUNT_I.json
         
     - name: Delete subaccount
       continue-on-error: True
