@@ -32,26 +32,32 @@ jobs:
         ls -a
         cat subaccount04.testaccount14.testnet.json
         
-    - uses: actions/cache@v2
-      id: cache
-      with:
-        path: ~/.near-credentials/testnet/x12.subaccount04.testaccount14.testnet.json
-        key: subaccount-credentials06-${{hashFiles('~/.near-credentials/testnet/**.testnet.json')}}
+    #- uses: actions/cache@v2
+    #  id: cache
+    #  with:
+    #    path: ~/.near-credentials/testnet/x12.subaccount04.testaccount14.testnet.json
+    #    key: subaccount-credentials06-${{hashFiles('~/.near-credentials/testnet/**.testnet.json')}}
     
-    - name: Check cache
-      run: |
-        cd ~/.near-credentials/testnet
-        ls -a
+    #- name: Check cache
+    #  run: |
+    #    cd ~/.near-credentials/testnet
+    #    ls -a
     #   cat x10.subaccount04.testaccount14.testnet.json
         
     #- name: Delete subaccount
     #  if: steps.cache.outputs.cache-hit == 'true'
     #  run: near delete x12.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
       
-    #- name: Create or recreate subaccount
-    #  run: |
-    #   near create-account x12.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
-      
+    - name: Create or recreate subaccount
+      run: |
+       near create-account x13.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: credentials
+        path: ~/.near-credentials/testnet/x13.subaccount04.testaccount14.testnet.json
+    
     #- name: Deploy
     #  run: |
     #   near deploy --wasmFile ./target/wasm32-unknown-unknown/release/rust_ci_example.wasm --accountId x12.subaccount04.testaccount14.testnet
