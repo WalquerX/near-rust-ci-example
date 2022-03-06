@@ -36,7 +36,7 @@ jobs:
       id: cache
       with:
         path: ~/.near-credentials/x5.subaccount04.testaccount14.testnet.json
-        key: subaccount-credentials02
+        key: subaccount-credentials03
         
     - name: Delete subaccount
       if: steps.cache.outputs.cache-hit == 'true'
