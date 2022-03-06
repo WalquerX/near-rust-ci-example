@@ -84,12 +84,19 @@ impl Counter {
         // Another way to log is to cast a string into bytes, hence "b" below:
         env::log(b"Reset counter to zero");
     }
+
+    /// Reset to zero.
+    pub fn prueba(&mut self) {
+        self.val = 0;
+        // Another way to log is to cast a string into bytes, hence "b" below:
+        env::log(b"Reset counter to zero");
+    }
 }
 
 // unlike the struct's functions above, this function cannot use attributes #[derive(…)] or #[near_bindgen]
 // any attempts will throw helpful warnings upon 'cargo build'
 // while this function cannot be invoked directly on the blockchain, it can be called from an invoked function
-pub fn after_counter_change() {
+fn after_counter_change() {
     // show helpful warning that i8 (8-bit signed integer) will overflow above 127 or below -128
     env::log("Make sure you don't overflow, my friend.".as_bytes());
 }
