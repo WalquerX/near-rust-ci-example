@@ -52,10 +52,10 @@ jobs:
           name: credentials
           path: ~/.near-credentials/testnet/
     
-    #- name: Check artifact
-    #  run: |
-    #    cd ~/.near-credentials/testnet/
-    #    ls -a
+    - name: Check artifact
+      run: |
+        cd ~/.near-credentials/testnet/
+        ls -a
     #    cat x10.subaccount04.testaccount14.testnet.json
         
     #- name: Delete subaccount
