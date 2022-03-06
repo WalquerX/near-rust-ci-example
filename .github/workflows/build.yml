@@ -55,6 +55,7 @@ jobs:
     - name: Check artifact
       run: |
         cd
+        ls -a
         find -iname subaccount04.testaccount14.testnet.json
       
     #    cd ~/.near-credentials/testnet/
