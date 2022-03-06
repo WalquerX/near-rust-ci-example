@@ -64,13 +64,13 @@ jobs:
       
     - name: Create or recreate subaccount
       run: |
-       near create-account x14.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
+       near create-account x15.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
     
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: credentials
-        path: ~/.near-credentials/testnet/x13.subaccount04.testaccount14.testnet.json
+        path: ~/.near-credentials/testnet/x15.subaccount04.testaccount14.testnet.json
     
     #- name: Deploy
     #  run: |
