@@ -53,17 +53,17 @@ jobs:
     - name: Delete subaccount
       continue-on-error: True
     #  if: steps.cache.outputs.cache-hit == 'true'
-      run: near delete x20.subaccount04.testaccount14.testnet subaccount04.testaccount14.testnet
+      run: near delete $CONTRACT_ACCOUNT_ID subaccount04.testaccount14.testnet
       
     - name: Create or recreate subaccount
       run: |
-       near create-account x20.subaccount04.testaccount14.testnet --masterAccount subaccount04.testaccount14.testnet
+       near create-account $CONTRACT_ACCOUNT_ID.testnet --masterAccount subaccount04.testaccount14.testnet
     
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: credentials
-        path: ~/.near-credentials/testnet/x20.subaccount04.testaccount14.testnet.json
+        path: ~/.near-credentials/testnet/$CONTRACT_ACCOUNT_ID.json
     
     - name: Deploy
       run: |
