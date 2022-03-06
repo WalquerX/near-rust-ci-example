@@ -21,7 +21,7 @@ jobs:
       id: cache
       with:
         path: ~/.near-credentials/x5.subaccount04.testaccount14.testnet.json
-        key: subaccount-credentials
+        key: subaccount-credentials01
     
     - name: Add wasm target to your toolchain
       run: rustup target add wasm32-unknown-unknown
